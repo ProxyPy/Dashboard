@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
+using Dashboard;
 
 namespace Dashboard.API.Twitter
 {
@@ -37,7 +38,7 @@ namespace Dashboard.API.Twitter
 
         public List<Tweet> GetTimeline()
         {
-            var buffer = MyHttpHelper.GetResposeFromUrl("https://api.twitter.com/1.1/statuses/home_timeline.json", _client);
+            var buffer = MyInternetHelper.GetResposeFromUrl("https://api.twitter.com/1.1/statuses/home_timeline.json", _client);
 
             var json = JsonConvert.DeserializeObject<List<Tweet>>(buffer);
             return json;
