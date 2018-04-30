@@ -1,3 +1,16 @@
-﻿@model Dashboard.Models.TimelineViewModel
+﻿@model IEnumerable<Dashboard.Models.Tweet>
 
-@Model.Text
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div>
+                <p>@item.User.Name (@item.User.ScreenName)</p>
+            </div>
+            <div>@item.Text</div>
+        </td>
+    </tr>
+}
+
+</table>
